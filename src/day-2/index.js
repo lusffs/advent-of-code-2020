@@ -9,7 +9,7 @@ const stepTwo = (input) => {
 };
 
 const getInput = () =>
-  fs.readFileSync("./src/day-0/input.txt").toString().split("\n");
+  fs.readFileSync("./src/day-2/input.txt").toString().split("\n");
 
 module.exports = {
   stepOne,

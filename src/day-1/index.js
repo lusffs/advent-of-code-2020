@@ -35,13 +35,9 @@ const getInput = () =>
       return parseInt(value);
     });
 
-const executeStepOne = () => stepOne(getInput());
-
-const executeStepTwo = () => stepTwo(getInput());
-
 module.exports = {
   stepOne,
   stepTwo,
-  executeStepOne,
-  executeStepTwo,
+  executeStepOne: () => stepOne(getInput()),
+  executeStepTwo: () => stepTwo(getInput()),
 };
