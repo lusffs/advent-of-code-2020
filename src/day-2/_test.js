@@ -11,8 +11,8 @@ describe("Day 2", () => {
     });
   });
   describe("Step 2", () => {
-    it.skip("should return XXX from mockInput", () => {
-      assert.strictEqual(stepTwo(mockInput), 0);
+    it("should return 1 from mockInput", () => {
+      assert.strictEqual(stepTwo(mockInput), 1);
     });
   });
 });

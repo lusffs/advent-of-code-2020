@@ -12,5 +12,9 @@ console.log(
   "2-1:",
   require("./src/day-2/index.js").executeStepOne().toString()
 ); // 569
+console.log(
+  "2-2:",
+  require("./src/day-2/index.js").executeStepTwo().toString()
+); //
 
 console.log("\n\n");

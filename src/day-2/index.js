@@ -5,13 +5,14 @@ const stepOne = (input) => {
     const [policy, password] = item.split(":");
     const [limits, character] = policy.split(" ");
     const [min, max] = limits.split("-");
+    const passwordArray = password.split("");
 
     return (
       password.indexOf(character) > -1 &&
-      password.split("").filter((c) => {
+      passwordArray.filter((c) => {
         return c === character;
       }).length >= min &&
-      password.split("").filter((c) => {
+      passwordArray.filter((c) => {
         return c === character;
       }).length <= max
     );
@@ -21,7 +22,20 @@ const stepOne = (input) => {
 };
 
 const stepTwo = (input) => {
-  throw Error("Not implemented yet... 😔");
+  const validInputs = input.filter((item) => {
+    const [policy, password] = item.split(":");
+    const [limits, character] = policy.split(" ");
+    const [positionOne, positionTwo] = limits.split("-");
+    const passwordArray = password.split("");
+
+    return (
+      passwordArray[positionOne] !== passwordArray[positionTwo] &&
+      (passwordArray[positionOne] === character ||
+        passwordArray[positionTwo] === character)
+    );
+  });
+
+  return validInputs.length;
 };
 
 const getInput = () =>
