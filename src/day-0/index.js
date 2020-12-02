@@ -14,6 +14,6 @@ const getInput = () =>
 module.exports = {
   stepOne,
   stepTwo,
-  executeStepOne: () => stepTwo(getInput()),
-  executeStepTwo: () => stepOne(getInput()),
+  executeStepOne: () => stepOne(getInput()),
+  executeStepTwo: () => stepTwo(getInput()),
 };

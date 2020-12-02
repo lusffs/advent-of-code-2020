@@ -1,7 +1,23 @@
 const fs = require("fs");
 
 const stepOne = (input) => {
-  throw Error("Not implemented yet... 😔");
+  const validInputs = input.filter((item) => {
+    const [policy, password] = item.split(":");
+    const [limits, character] = policy.split(" ");
+    const [min, max] = limits.split("-");
+
+    return (
+      password.indexOf(character) > -1 &&
+      password.split("").filter((c) => {
+        return c === character;
+      }).length >= min &&
+      password.split("").filter((c) => {
+        return c === character;
+      }).length <= max
+    );
+  });
+
+  return validInputs.length;
 };
 
 const stepTwo = (input) => {
@@ -14,6 +30,6 @@ const getInput = () =>
 module.exports = {
   stepOne,
   stepTwo,
-  executeStepOne: () => stepTwo(getInput()),
-  executeStepTwo: () => stepOne(getInput()),
+  executeStepOne: () => stepOne(getInput()),
+  executeStepTwo: () => stepTwo(getInput()),
 };
