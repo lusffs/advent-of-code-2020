@@ -10,7 +10,20 @@ const stepOne = (input) => {
 };
 
 const stepTwo = (input) => {
-  throw Error("Not implemented yet.. 😔");
+  const targetValue = 2020;
+  const sortedInput = input.sort((a, b) => a - b);
+
+  for (let i = 0; i < sortedInput.length - 2; i++) {
+    for (let j = i + 1; j < sortedInput.length - 1; j++) {
+      for (let k = j + 1; k < sortedInput.length; k++) {
+        if (sortedInput[i] + sortedInput[j] + sortedInput[k] === targetValue) {
+          return sortedInput[i] * sortedInput[j] * sortedInput[k];
+        }
+      }
+    }
+  }
+
+  return 0;
 };
 
 const getInput = () =>
@@ -24,7 +37,7 @@ const getInput = () =>
 
 const executeStepOne = () => stepOne(getInput());
 
-const executeStepTwo = () => stepTwo(getInput);
+const executeStepTwo = () => stepTwo(getInput());
 
 module.exports = {
   stepOne,
