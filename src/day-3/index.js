@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const stepOne = (rows, right, down) => {
+const partOne = (rows, right, down) => {
   let sidePostion = right;
   let numberOfTrees = 0;
 
@@ -17,7 +17,7 @@ const stepOne = (rows, right, down) => {
   return numberOfTrees;
 };
 
-const stepTwo = (input) => {
+const partTwo = (input) => {
   const trajectories = [
     { right: 1, down: 1 },
     { right: 3, down: 1 },
@@ -29,7 +29,7 @@ const stepTwo = (input) => {
   let trees = 1;
 
   trajectories.forEach((trajectory) => {
-    const numberOfTrees = stepOne(input, trajectory.right, trajectory.down);
+    const numberOfTrees = partOne(input, trajectory.right, trajectory.down);
     trees = trees * (numberOfTrees !== 0 ? numberOfTrees : 1);
   });
 
@@ -40,8 +40,8 @@ const getInput = () =>
   fs.readFileSync("./src/day-3/input.txt").toString().split("\n");
 
 module.exports = {
-  stepOne,
-  stepTwo,
-  executeStepOne: () => stepOne(getInput(), 3, 1),
-  executeStepTwo: () => stepTwo(getInput()),
+  partOne,
+  partTwo,
+  executePartOne: () => partOne(getInput(), 3, 1),
+  executePartTwo: () => partTwo(getInput()),
 };

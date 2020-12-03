@@ -1,10 +1,10 @@
 const fs = require("fs");
 
-const stepOne = (input) => {
+const partOne = (input) => {
   throw Error("Not implemented yet... 😔");
 };
 
-const stepTwo = (input) => {
+const partTwo = (input) => {
   throw Error("Not implemented yet... 😔");
 };
 
@@ -12,8 +12,8 @@ const getInput = () =>
   fs.readFileSync("./src/day-0/input.txt").toString().split("\n");
 
 module.exports = {
-  stepOne,
-  stepTwo,
-  executeStepOne: () => stepOne(getInput()),
-  executeStepTwo: () => stepTwo(getInput()),
+  partOne,
+  partTwo,
+  executePartOne: () => partOne(getInput()),
+  executePartTwo: () => partTwo(getInput()),
 };

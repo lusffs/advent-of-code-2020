@@ -1,16 +1,12 @@
 const assert = require("assert");
-const stepOne = require("./index").stepOne;
-const stepTwo = require("./index").stepTwo;
+const partOne = require("./index").partOne;
+const partTwo = require("./index").partTwo;
 
 describe.skip("Day 0", () => {
-  describe("Step 1", () => {
-    it("should return true when StepOne is called", () => {
-      assert.strictEqual(stepOne(), true);
-    });
+  it("Part one should return true when PartOne is called", () => {
+    assert.strictEqual(partOne(), true);
   });
-  describe("Step 2", () => {
-    it("should return false when StepOne is called", () => {
-      assert.strictEqual(stepTwo(), false);
-    });
+  it("Part two should return false when part Two is called", () => {
+    assert.strictEqual(partTwo(), false);
   });
 });

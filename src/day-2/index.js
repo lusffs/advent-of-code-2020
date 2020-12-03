@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const stepOne = (input) => {
+const partOne = (input) => {
   const validInputs = input.filter((item) => {
     const [policy, password] = item.split(":");
     const [limits, character] = policy.split(" ");
@@ -21,7 +21,7 @@ const stepOne = (input) => {
   return validInputs.length;
 };
 
-const stepTwo = (input) => {
+const partTwo = (input) => {
   const validInputs = input.filter((item) => {
     const [policy, password] = item.split(":");
     const [limits, character] = policy.split(" ");
@@ -42,8 +42,8 @@ const getInput = () =>
   fs.readFileSync("./src/day-2/input.txt").toString().split("\n");
 
 module.exports = {
-  stepOne,
-  stepTwo,
-  executeStepOne: () => stepOne(getInput()),
-  executeStepTwo: () => stepTwo(getInput()),
+  partOne,
+  partTwo,
+  executePartOne: () => partOne(getInput()),
+  executePartTwo: () => partTwo(getInput()),
 };

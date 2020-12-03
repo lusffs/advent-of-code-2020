@@ -1,6 +1,6 @@
 const assert = require("assert");
-const stepOne = require("./index").stepOne;
-const stepTwo = require("./index").stepTwo;
+const partOne = require("./index").partOne;
+const partTwo = require("./index").partTwo;
 
 const mockInput = [
   "..##.......",
@@ -17,14 +17,10 @@ const mockInput = [
 ];
 
 describe("Day 3", () => {
-  describe("Step 1", () => {
-    it("should return 7 when right is 3 and down is 1", () => {
-      assert.strictEqual(stepOne(mockInput, 3, 1), 7);
-    });
+  it("Part one should return 7 when right is 3 and down is 1", () => {
+    assert.strictEqual(partOne(mockInput, 3, 1), 7);
   });
-  describe("Step 2", () => {
-    it("should return 336 stepTwo is called", () => {
-      assert.strictEqual(stepTwo(mockInput), 336);
-    });
+  it("Part two should return 336 when partTwo is called", () => {
+    assert.strictEqual(partTwo(mockInput), 336);
   });
 });

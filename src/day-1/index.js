@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const stepOne = (input) => {
+const partOne = (input) => {
   const targetValue = 2020;
   return input
     .filter((value, _, array) => {
@@ -9,7 +9,7 @@ const stepOne = (input) => {
     .reduce((a, b) => a * b);
 };
 
-const stepTwo = (input) => {
+const partTwo = (input) => {
   const targetValue = 2020;
   const sortedInput = input.sort((a, b) => a - b);
 
@@ -36,8 +36,8 @@ const getInput = () =>
     });
 
 module.exports = {
-  stepOne,
-  stepTwo,
-  executeStepOne: () => stepOne(getInput()),
-  executeStepTwo: () => stepTwo(getInput()),
+  partOne,
+  partTwo,
+  executePartOne: () => partOne(getInput()),
+  executePartTwo: () => partTwo(getInput()),
 };
