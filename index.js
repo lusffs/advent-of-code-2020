@@ -18,4 +18,10 @@ console.log(
   require("./src/day-3/index.js").executePartTwo().toString() // 6419669520
 );
 
+console.log(
+  "Day 4:",
+  require("./src/day-4/index.js").executePartOne().toString(), // 264
+  require("./src/day-4/index.js").executePartTwo().toString() // 224
+);
+
 console.log("*********************\n");
