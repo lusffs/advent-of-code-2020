@@ -30,4 +30,10 @@ console.log(
   require("./src/day-5/index.js").executePartTwo().toString() // 527
 );
 
+console.log(
+  "Day 6:",
+  require("./src/day-6/index.js").executePartOne().toString() // 6583
+  // require("./src/day-6/index.js").executePartTwo().toString() //
+);
+
 console.log("*********************\n");
