@@ -32,8 +32,8 @@ console.log(
 
 console.log(
   "Day 6:",
-  require("./src/day-6/index.js").executePartOne().toString() // 6583
-  // require("./src/day-6/index.js").executePartTwo().toString() //
+  require("./src/day-6/index.js").executePartOne().toString(), // 6583
+  require("./src/day-6/index.js").executePartTwo().toString() // 3290
 );
 
 console.log("*********************\n");

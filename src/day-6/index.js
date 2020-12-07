@@ -1,27 +1,50 @@
 const fs = require("fs");
 
-const partOne = (groups) => {
-  return groups.reduce((prevGroup, group) => {
-    const value = group.split("\n").reduce((previousValue, currentValue) => {
-      const values = currentValue.split("");
+const partOne = (groups) =>
+  groups.reduce(
+    (prevGroup, group) =>
+      prevGroup +
+      group
+        .split("\n")
+        .reduce(
+          (previousValue, currentValue) => [
+            ...previousValue,
+            ...currentValue
+              .split("")
+              .filter((v) => previousValue.indexOf(v) === -1),
+          ],
+          []
+        ).length,
+    0
+  );
 
-      const lol = [
-        ...previousValue,
-        ...values.filter((v) => {
-          return previousValue.indexOf(v) === -1;
-        }),
-      ];
+const partTwo = (groups) =>
+  groups.reduce((prevGroup, group) => {
+    const flatGroup = group
+      .split("\n")
+      .reduce(
+        (previousValue, currentValue) => [
+          ...previousValue,
+          ...currentValue.split(""),
+        ],
+        []
+      );
 
-      return lol;
-    }, []);
+    let count = 0;
+    const uniqueSet = [...new Set(flatGroup)];
 
-    return prevGroup + value.length;
+    for (let i = 0; i < uniqueSet.length; i++) {
+      const unique = uniqueSet[i];
+      if (
+        flatGroup.filter((c) => unique === c).length ===
+        group.split("\n").length
+      ) {
+        count++;
+      }
+    }
+
+    return prevGroup + count;
   }, 0);
-};
-
-const partTwo = (groups) => {
-  throw Error("Not implemented yet... 😔");
-};
 
 const getInput = () =>
   fs.readFileSync("./src/day-6/input.txt").toString().split("\n\n");
