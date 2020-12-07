@@ -5,10 +5,10 @@ const partOne = (inputs) => {
 
   inputs.forEach((input) => {
     const test = input
-      .replaceAll("B", 1)
-      .replaceAll("F", 0)
-      .replaceAll("R", 1)
-      .replaceAll("L", 0);
+      .replace(/B/g, 1)
+      .replace(/F/g, 0)
+      .replace(/R/g, 1)
+      .replace(/L/g, 0);
 
     const row = parseInt(test.substr(0, 7), 2);
     const column = parseInt(test.substr(7, 3), 2);
@@ -26,10 +26,10 @@ const partTwo = (inputs) => {
   const ids = inputs
     .map((input) => {
       const test = input
-        .replaceAll("B", 1)
-        .replaceAll("F", 0)
-        .replaceAll("R", 1)
-        .replaceAll("L", 0);
+        .replace(/B/g, 1)
+        .replace(/F/g, 0)
+        .replace(/R/g, 1)
+        .replace(/L/g, 0);
 
       const row = parseInt(test.substr(0, 7), 2);
       const column = parseInt(test.substr(7, 3), 2);
