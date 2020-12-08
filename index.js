@@ -51,9 +51,9 @@ console.log(
 console.log(
   "Day 7:",
   require("./src/day-7/index.js").executePartOne().toString(),
-  "(242)"
-  // require("./src/day-6/index.js").executePartTwo().toString(),
-  // "(XXX)"
+  "(242)",
+  require("./src/day-7/index.js").executePartTwo().toString(),
+  "(176035)"
 );
 
 console.log("*********************\n");

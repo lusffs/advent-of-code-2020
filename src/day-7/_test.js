@@ -14,11 +14,21 @@ dotted black bags contain no other bags.`
   .toString()
   .split("\n");
 
+const testRules2 = `shiny gold bags contain 2 dark red bags.
+dark red bags contain 2 dark orange bags.
+dark orange bags contain 2 dark yellow bags.
+dark yellow bags contain 2 dark green bags.
+dark green bags contain 2 dark blue bags.
+dark blue bags contain 2 dark violet bags.
+dark violet bags contain no other bags.`
+  .toString()
+  .split("\n");
+
 describe("Day 7", () => {
   it("should return 4 when part one is called is called with testRules", () => {
     assert.strictEqual(partOne(testRules), 4);
   });
-  // it("Part two should return false when part two is called", () => {
-  //   assert.strictEqual(partTwo(), false);
-  // });
+  it("should return 126 false when part two is called with testRules2", () => {
+    assert.strictEqual(partTwo(testRules2), 126);
+  });
 });

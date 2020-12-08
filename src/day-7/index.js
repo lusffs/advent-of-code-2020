@@ -1,9 +1,7 @@
 const fs = require("fs");
 
-const partOne = (rules, yourBag) => {
-  const lookupBag = "shiny gold";
-
-  const bagRules = rules.reduce((map, rule) => {
+parseBagRules = (rules) => {
+  return rules.reduce((map, rule) => {
     const [bag, bagContent] = rule.split("contain");
     map[bag.replace("bags", "").trim()] = bagContent
       .split(",")
@@ -20,10 +18,19 @@ const partOne = (rules, yourBag) => {
 
     return map;
   }, {});
+};
+
+const partOne = (rules) => {
+  const lookupBag = "shiny gold";
+
+  const bagRules = parseBagRules(rules);
 
   let bagKeysThatCanContainLookupBag = new Set([]);
 
   const canContainLookupBag = (bagName) => {
+    if (bagKeysThatCanContainLookupBag.has(bagName)) {
+      return true;
+    }
     const bagContents = bagRules[bagName];
 
     var containsLookup =
@@ -47,15 +54,40 @@ const partOne = (rules, yourBag) => {
     }
   };
 
-  for (const [key, value] of Object.entries(bagRules)) {
-    canContainLookupBag(key);
+  for (const [key] of Object.entries(bagRules)) {
+    if (!bagKeysThatCanContainLookupBag.has(key)) {
+      canContainLookupBag(key);
+    }
   }
 
   return bagKeysThatCanContainLookupBag.size;
 };
 
 const partTwo = (rules) => {
-  throw Error("Not implemented yet... 😔");
+  const lookupBag = "shiny gold";
+  const bagRules = parseBagRules(rules);
+
+  const openBag = (bagName, depth) => {
+    const bagContents = bagRules[bagName];
+
+    let bagsInsideThis = bagContents.reduce((a, b) => {
+      return a + parseInt(b.split(" ").slice(0, 1).join(" "));
+    }, 0);
+
+    for (let i = 0; i < bagContents.length; i++) {
+      const innerBagName = bagContents[i].split(" ").slice(1).join(" ");
+
+      const numberOfBags = parseInt(
+        bagContents[i].split(" ").slice(0, 1).join(" ")
+      );
+
+      bagsInsideThis += openBag(innerBagName, numberOfBags);
+    }
+
+    return bagsInsideThis * (depth || 1);
+  };
+
+  return openBag(lookupBag, 1);
 };
 
 const getInput = () =>
