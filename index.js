@@ -56,4 +56,12 @@ console.log(
   "(176035)"
 );
 
+console.log(
+  "Day 8:",
+  require("./src/day-8/index.js").executePartOne().toString(),
+  "(1818)"
+  // require("./src/day-7/index.js").executePartTwo().toString(),
+  // "(176035)"
+);
+
 console.log("*********************\n");
